@@ -1,0 +1,37 @@
+using UnityEngine;
+
+public class Player : MonoBehaviour
+{
+    [SerializeField] public float moveSpeed = 5f;
+    [SerializeField] public bool IsInvuInerable = false;
+    private float jumpForce = 10f;
+
+    private Rigidbody rb;
+
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
+
+    public void SetMoveSpeed(float speed)
+    {
+
+    }
+
+    public void SetInvulnerabillity(bool isEnabled)
+    {
+        Debug.Log("isEnabled Check"); //ค่าเปลี่ยน
+    }
+
+    private void Update()
+    {
+        float moveInput = Input.GetAxisRaw("Horizontal");
+
+        rb.linearVelocity = new Vector2 (moveInput * moveSpeed, rb.linearVelocity.y);
+
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+        }
+    }
+}
