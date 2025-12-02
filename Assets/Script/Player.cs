@@ -15,13 +15,30 @@ public class Player : MonoBehaviour
 
     public void SetMoveSpeed(float speed)
     {
-
+        speed = Mathf.Clamp01(speed);
     }
 
     public void SetInvulnerabillity(bool isEnabled)
     {
         Debug.Log("isEnabled Check"); //ค่าเปลี่ยน
     }
+
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        rb = collision.GetComponent<Rigidbody>();
+    }
+
+    public void Move()
+    {
+        Mathf.Clamp01(moveSpeed);
+    }
+
+    public void Jump()
+    {
+        jumpForce = Mathf.Clamp01(jumpForce);
+    }
+
+
 
     private void Update()
     {

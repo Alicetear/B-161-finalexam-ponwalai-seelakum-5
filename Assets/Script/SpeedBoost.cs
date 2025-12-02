@@ -2,8 +2,9 @@ using UnityEngine;
 
 public class SpeedBoost : PowerUpBase
 {
+    public float SetfasterSpeed;
     public override void ApplyEffect(Player player)
     {
-        throw new System.NotImplementedException();
+        SetfasterSpeed += 10f;
     }
 }
