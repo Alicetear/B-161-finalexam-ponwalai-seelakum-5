@@ -1,6 +1,7 @@
 using UnityEngine;
 
-public class PowerUpBase : MonoBehaviour
+public abstract class PowerUpBase : MonoBehaviour
 {
-    
+    protected bool IsEffectActive = false;
+    public abstract void ApplyEffect(Player player);
 }
